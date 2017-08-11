@@ -1,0 +1,46 @@
+  <%= form_for @user do |f| %>
+    
+      <div class="field">
+      <p class="control has-icons-left">
+        <%= f.text_field :name, class:"form-control", placeholder: "Your Name" %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </p>
+    </div>
+     
+      <div class="field">
+      <p class="control has-icons-left">
+        <%= f.text_field :email, class:"form-control", placeholder: "Your Email" %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <%= f.text_field :password, class:"form-control", placeholder: "Your Password" %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </p>
+    </div>
+      <div class="field">
+      <p class="control has-icons-left">
+        <%= f.text_field :password, class:"form-control", placeholder: "Password Confirmation" %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </p>
+
+    <div class="field">
+      <p class="control">
+       <button class="button is-success" href>
+         Sign Up
+       </button>
+      </p>
+    </div> 
+  <% end %>
+</div>
+ 

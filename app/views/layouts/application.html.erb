@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lab51</title>
-    <%= csrf_meta_tags %>
+    <title>Tinder Version2</title>
+  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= flash_messages %>
-    <% if current_user %>
-  <%# display a Log out link. let href be "/" for now %>
-  <%= link_to "Log out #{current_user.email}", "/", class: "..." %>
-<% else %>
-  <p>Hello</p>
-  <%# display Sign up %>
-<% end %>
-  </head>
+    <!-- Toggle Button -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#nav-content">
+    </button>
+    <!-- Nav Content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= users_new_path%>">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_session_path%>">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= users_path %>">Browse Profiles</a>
+        </li>
+        <% if current_user %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_path %>">Log out</a>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= yield %>
+
+  <footer class="footer-12">
+    <div class="container">
+        Made with <%= image_tag('heart') %> in Sai Gon
+    </div>
+  </footer>    
+
+</body>
 </html>
+  
