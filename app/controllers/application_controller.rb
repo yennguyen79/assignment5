@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   
   def current_user
-    return @current_user if @current_user
+     @current_user ||= User.find_by(id: session[:user_id]) 
 
     @current_user = User.find_by(id: session[:user_id])
   end
@@ -13,10 +13,14 @@ class ApplicationController < ActionController::Base
     #  @current_user ||= User.find_by(id: session[:user_id])
     session[:user_id] = user.id
   end
-    # def require_login
-    #   unless current_user
-    #     redirect_to root_path
-    #     flas[:error] = "Access Demied. Please login to view"
+  
+  def require_login
+    unless current_user
+      redirect_to root_path
+      flash[:error] = "Access Demied. Please login to view"
+    end
+  end
+
   def log_out(user)
     session[:user_id] = nil
   end  

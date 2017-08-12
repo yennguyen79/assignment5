@@ -15,17 +15,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<%= users_new_path%>">Sign Up</a>
+          <a class="nav-link" href="<%= new_user_path%>">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= new_session_path%>">Log In</a>
+          <a class="nav-link" href="<%= login_path%>">Log In</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= users_path %>">Browse Profiles</a>
         </li>
         <% if current_user %>
         <li class="nav-item">
-          <a class="nav-link" href="<%= new_user_path %>">Log out</a>
+          <a class="nav-link" href="<%= logout_path %>">Log out</a>
         </li>
         <% end %>
       </ul>
@@ -33,12 +33,6 @@
   </nav>
 
   <%= yield %>
-
-  <footer class="footer-12">
-    <div class="container">
-        Made with <%= image_tag('heart') %> in Sai Gon
-    </div>
-  </footer>    
 
 </body>
 </html>

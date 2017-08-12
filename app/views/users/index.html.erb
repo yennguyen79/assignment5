@@ -1,0 +1,11 @@
+<table class="table">
+  <tbody>
+    <% User.all.each do |user| %>
+      <tr>
+        <td><%= image_tag user."http://wallpaper-gallery.net/images/image/image-13.jpg" %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

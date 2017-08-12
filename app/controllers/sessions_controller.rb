@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user 
       if @user.authenticate(params[:password])
       log_in(@user)
-      redirect_to root_path, flash: {notice: "Loggin"}
+      redirect_to users_path, flash: {notice: "Loggin"}
     else
       redirect_to login_path, flash: {notice: "Inval"}
       end

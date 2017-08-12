@@ -1,6 +1,6 @@
-<div class="column is-4">
+<div class="column is-4"><strong>Log In</strong>
 <div class="login-form">
-  <%= form_tag new_session_path  do %>
+  <%= form_tag login_path  do %>
 
     <div class="field">
       <p class="control has-icons-left">
@@ -13,7 +13,7 @@
 
     <div class="field">
       <p class="control has-icons-left">
-        <%= text_field_tag :password, nil, placeholder: "Your Password", class:"input" %>
+        <%= password_field_tag :password, nil, placeholder: "Your Password", class:"input" %>
         <span class="icon is-small is-left">
           <i class="fa fa-lock"></i>
         </span>
