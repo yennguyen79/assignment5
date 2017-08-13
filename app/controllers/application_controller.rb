@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   
   def current_user
-     @current_user ||= User.find_by(id: session[:user_id]) 
+    return @current_user if @current_user
 
     @current_user = User.find_by(id: session[:user_id])
   end
@@ -24,5 +24,7 @@ class ApplicationController < ActionController::Base
   def log_out(user)
     session[:user_id] = nil
   end  
+
+  
 end 
 

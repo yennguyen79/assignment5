@@ -22,4 +22,5 @@ end
     redirect_to root_path, flash: {success: "Logged out."}
   end
   
+  
 end
