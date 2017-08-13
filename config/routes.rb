@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
  
   
-  get 'hoangyen/quy'
+   get 'sessions/new'
+   post 'friendship/create' =>"friendships#create"
+   pots 'friendship/destroy' => "friendships#destroy"
 
   root "home#index"
-  get "buddies" => "hoangyen#quy"
-  get "cities" => "playground#index"
+  
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get '/logout' => "sessions#destroy"

@@ -2,21 +2,21 @@ class User < ApplicationRecord
   has_secure_password
   validates :name, :email, presence: true
 
-def password=(value)
-  @password = value
-  sele.password.digest = @password.reverse
-end
+# def password=(value)
+#   @password = value
+#   select.password.digest = @password.reverse
+# end
 
-def password
-  @password
-end
+# def password
+#   @password
+# end
 
-def valid_passwoord?(curren_password)
-  curren_password.reverse ==password.digest  
-end
+# def valid_passwoord?(curren_password)
+#   curren_password.reverse ==password.digest  
+# end
 
 def image_url_or_default
-      image_url.presence || "http://wallpaper-gallery.net/images/image/image-13.jpg"
+      image_url.presence || "http://file.vforum.vn/hinh/2016/08/hinh-anh-dep-ve-cho-pug-cute-7.jpg"
 end
 
 def self.generate_users(n = 5, gender = "female")

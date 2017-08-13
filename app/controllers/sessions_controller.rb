@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path, flash: {notice: "Inval"}
     end
-end
+    end
 
   def destroy
     log_out(current_user)

@@ -2,10 +2,22 @@
   <tbody>
     <% User.all.each do |user| %>
       <tr>
-        <td><%= image_tag user.image_url_or_default %></td>
+        <td><%= image_tag(user.image_url_or_default, :size => "260x180") %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-      </tr>
-    <% end %>
+        <td>
+        <%= form_tag friendship_create_path do   %>
+          <%= hidden_field_tag another_user_id: user.id  %>
+          <%= submit_tag "Add Friend" %>
+       <% end %>
+ 
+        <%= form_tag friendship_destroy_path do   %>
+          <%= hidden_field_tag another_user_id: user.id  %>
+          <%= submit_tag "Remove Friend" %>
+ 
+         <% end %>
+         </td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
