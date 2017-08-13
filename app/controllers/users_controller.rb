@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create user_params
+    @user = User.new user_params
     if @user.save
-      log_in(@user)
-      redirect_to login_path, flash: {success: "User create"}
+      flash[:success] = "User created."
+      redirect_to login_path
     else
       render 'new'  
     end

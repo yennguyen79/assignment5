@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.11'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem "bulma-rails"
+gem 'omniauth'
+gem 'omniauth-facebook', '~> 4.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

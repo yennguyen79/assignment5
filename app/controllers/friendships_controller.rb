@@ -1,9 +1,16 @@
 class FriendshipsController < ApplicationController
+  def new
+  end
+
   def create
-    current_user.add_friend(User.find_by(id: params[:another_user_id]))
-    flash[:success] = "Add success"
+    current_user.friendships.create!(friendship_params)
+    redirect_to users_path
   end
   def destroy
-    current_user.remove_friend(User.find_by(id: params[another_user_id]))
-    
+    user = User.find params[:user_id]
+    current_user.friends.delete(user)
+    redirect_to users_path
+
+  def friendship_params
+    params.require(:friendship).permit(:user_id, :friend_id)
 end

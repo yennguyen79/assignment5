@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
-  validates :name, :email, presence: true
+  validates :name, :email, presence: true, uniqueness: {case_sensitive: false}
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
 
 # def password=(value)
 #   @password = value
@@ -30,5 +32,18 @@ def self.generate_users(n = 5, gender = "female")
       hash[:image_url] = person["picture"]["large"]
       User.create! hash
     end
+  end
+
+  def is_friend?(another)
+    friends.include?(another)
+  end
+
+  def add_friend(another)
+      friends << another
+  end
+  
+
+  def remove_friend(another)
+    friendships.find_by(friend_id: another.id).destroy
   end
 end  
